@@ -3,6 +3,7 @@
   "authors": [
     "e022333 <ffernandez@bbva.com>"
   ],
+  "version": "1.0.0",
   "description": "Component to upload a canvas to imgur",
   "main": "imgur-upload.html",
   "keywords": [
@@ -18,6 +19,11 @@
     "tests"
   ],
   "dependencies": {
-    "iron-ajax": "PolymerElements/iron-ajax#^1.4.0"
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.0",
+    "polymer": "Polymer/polymer#^1.0.0",
+    "webcomponentsjs": "^0.7.22"
+  },
+  "devDependencies":{
+    "video-camera": "^1.0.1"
   }
 }

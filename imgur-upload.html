@@ -1,4 +1,5 @@
-<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
 
 <dom-module id="imgur-upload">
 <template>
@@ -22,10 +23,6 @@ Polymer({
         url: {
             type: String,
             notify: true
-        },
-        lastsent: {
-            type: Number,
-            value: 0
         }
     },
     _canvasChanged: function(){

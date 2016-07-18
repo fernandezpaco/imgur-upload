@@ -1,0 +1,52 @@
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="imgur-upload">
+<template>
+    <iron-ajax
+            id="dataAjax"
+            url="https://api.imgur.com/3/image"
+            method="POST"
+            on-response="handleResponse"
+            on-error="handleResponse"
+            headers='{"Authorization":"Client-ID 1f23603f3f374a4"}'>
+    </iron-ajax>
+</template>
+<script>
+Polymer({
+    is: "imgur-upload",
+    properties: {
+        canvas: {
+            type: String,
+            observer: '_canvasChanged'
+        },
+        url: {
+            type: String,
+            notify: true
+        },
+        lastsent: {
+            type: Number,
+            value: 0
+        }
+    },
+    _canvasChanged: function(){
+
+        var canvastoform=this.canvas;
+        var formData = new FormData();
+        if(canvastoform.indexOf(',')>=0)
+            canvastoform=this.canvas.split(',')[1];
+        formData.append("image", canvastoform);
+
+        this.$.dataAjax.body = formData        
+
+        this.$.dataAjax.generateRequest();
+    },
+    handleResponse: function(response) {
+        try{
+            this.url=response.detail.response.data.link;
+        }catch(e){            
+        }
+    }
+
+});
+</script>
+</dom-module>

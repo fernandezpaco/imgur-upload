@@ -1,11 +1,11 @@
 {
-  "name": "imgur-upload",
+  "name": "imgur-uploader",
   "authors": [
     "e022333 <ffernandez@bbva.com>"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Component to upload a canvas to imgur",
-  "main": "imgur-upload.html",
+  "main": "imgur-uploader.html",
   "keywords": [
     "web-components"
   ],

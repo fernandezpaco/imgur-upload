@@ -3,7 +3,7 @@
   "authors": [
     "e022333 <ffernandez@bbva.com>"
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Component to upload a canvas to imgur",
   "main": "imgur-uploader.html",
   "keywords": [
@@ -23,7 +23,8 @@
     "polymer": "Polymer/polymer#^1.0.0",
     "webcomponentsjs": "^0.7.22"
   },
-  "devDependencies":{
-    "video-camera": "^1.0.1"
+  "devDependencies": {
+    "video-camera": "^1.0.1",
+    "paper-input": "PolymerElements/paper-input#^1.1.15"    
   }
 }

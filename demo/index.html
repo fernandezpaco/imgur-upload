@@ -9,6 +9,7 @@
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="../../polymer/polymer.html">
+  <link rel="import" href="../../paper-input/paper-input.html">
   <link rel="import" href="../../video-camera/video-camera.html">
 
   <link rel="import" href="../imgur-uploader.html">
@@ -19,9 +20,10 @@
 
   <video-camera screenshot="{{screen}}"></video-camera>
 
-  <imgur-uploader canvas="{{screen}}" url="{{url}}" client_id="1f23603f3f374a4"></imgur-uploader>
+  <imgur-uploader canvas="{{screen}}" url="{{url}}" client_id="{{val}}"></imgur-uploader>
   <br>
-  <a href="{{url}}">Click on video and then click here to see image (when url is ready)</a>
+  <paper-input label="your client id" value="{{val}}"></paper-input>
+  <a href="{{url}}">Input your imgur client-id, then Click on the video and then click here to see image (when url is ready)</a>
 
 </template>
 </body>

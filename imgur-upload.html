@@ -1,20 +1,19 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 
-<dom-module id="imgur-upload">
+<dom-module id="imgur-uploader">
 <template>
     <iron-ajax
             id="dataAjax"
             url="https://api.imgur.com/3/image"
             method="POST"
             on-response="handleResponse"
-            on-error="handleResponse"
-            headers='{"Authorization":"Client-ID 1f23603f3f374a4"}'>
+            on-error="handleResponse">
     </iron-ajax>
 </template>
 <script>
 Polymer({
-    is: "imgur-upload",
+    is: "imgur-uploader",
     properties: {
         canvas: {
             type: String,
@@ -23,6 +22,9 @@ Polymer({
         url: {
             type: String,
             notify: true
+        },
+        client_id: {
+            type: String
         }
     },
     _canvasChanged: function(){
@@ -32,6 +34,9 @@ Polymer({
         if(canvastoform.indexOf(',')>=0)
             canvastoform=this.canvas.split(',')[1];
         formData.append("image", canvastoform);
+
+        this.$.dataAjax.headers={};
+        this.$.dataAjax.headers['Authorization']='Client-ID '+this.client_id;
 
         this.$.dataAjax.body = formData        
 

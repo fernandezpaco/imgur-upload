@@ -25,6 +25,9 @@ Polymer({
         },
         client_id: {
             type: String
+        },
+        oauth_token: {
+            type: String
         }
     },
     _canvasChanged: function(){
@@ -36,7 +39,10 @@ Polymer({
         formData.append("image", canvastoform);
 
         this.$.dataAjax.headers={};
-        this.$.dataAjax.headers['Authorization']='Client-ID '+this.client_id;
+        if(this.oauth_token)
+            this.$.dataAjax.headers['Authorization']='Bearer '+this.oauth_token;
+        else
+            this.$.dataAjax.headers['Authorization']='Client-ID '+this.client_id;
 
         this.$.dataAjax.body = formData        
 

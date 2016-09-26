@@ -50,7 +50,11 @@ Polymer({
     },
     handleResponse: function(response) {
         try{
-            this.url=response.detail.response.data.link;
+            if(response.detail.error){
+                this.fire('imgur-oauth-signin-needed');
+            }else{
+                this.url=response.detail.response.data.link;
+            }            
         }catch(e){            
         }
     }
